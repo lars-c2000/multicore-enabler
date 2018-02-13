@@ -22,7 +22,7 @@ surface.CreateFont( "Roboto_Button", {
 	outline = false,
 })
 surface.CreateFont( "Roboto_Subtext", {
-	font = "Roboto", -- Use the font-name which is shown to you by your operating system Font Viewer, not the file name
+	font = "Roboto",
 	extended = false,
 	size = 18,
 	weight = 400,
@@ -59,7 +59,7 @@ local function Multicore()
 	title:DockMargin(0, 0, 0, 0)
 
 	local subtext = vgui.Create("DLabel", popup)
-	subtext:SetText("This could improve your FPS massively!")
+	subtext:SetText("This will enabled Multicore Rendering!")
 	subtext:SetFont("Roboto_Subtext")
 	subtext:Center()
 	subtext:SetTextColor(Color(0, 195, 165))
@@ -84,18 +84,18 @@ local function Multicore()
 	button_enable.DoClick = function()
 		LocalPlayer():ConCommand("gmod_mcore_test 1")
 		LocalPlayer():ConCommand("mat_queue_mode -1")
+		LocalPlayer():ConCommand("studio_queue_mode 1")
 		LocalPlayer():ConCommand("cl_threaded_bone_setup 1")
 		LocalPlayer():ConCommand("cl_threaded_client_leaf_system 1")
 		LocalPlayer():ConCommand("r_threaded_particles 1")
 		LocalPlayer():ConCommand("r_threaded_renderables 1")
 		LocalPlayer():ConCommand("r_queued_ropes 1")
-		LocalPlayer():ConCommand("studio_queue_mode 1")
 		popup:Remove()
 		LocalPlayer():ChatPrint( "You have succesfully enabled Multicore Rendering" )
 	end
 
 	local button_disable = vgui.Create("DButton", buttons) -- Yes i know it doesn't DISABLE it, but i needed a name :P
-	button_disable:SetText("Nah, don't want to")
+	button_disable:SetText("No thanks")
 	button_disable:SetFont("Roboto_Button")
 	button_disable:Center()
 	button_disable:SetWide(popup:GetWide() * 0.5 - 14)
