@@ -95,7 +95,7 @@ local function Multicore()
 	end
 
 	local button_disable = vgui.Create("DButton", buttons) -- Yes i know it doesn't DISABLE it, but i needed a name :P
-	button_disable:SetText("No thanks")
+	button_disable:SetText("No Thanks")
 	button_disable:SetFont("Roboto_Button")
 	button_disable:Center()
 	button_disable:SetWide(popup:GetWide() * 0.5 - 14)
